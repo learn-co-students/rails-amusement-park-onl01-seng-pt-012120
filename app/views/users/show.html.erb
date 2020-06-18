@@ -1,0 +1,17 @@
+<h1><%= @user.name %>'s Profile</h1>
+
+<% flash.each do |type, msg| %>
+  <div class="alert alert-warning" role="alert">
+    <%= msg %>
+  </div>
+<% end %>
+
+<ul>
+	<li>Mood: <%= @user.mood %></li>
+	<li>Height: <%= @user.height %></li>
+	<li>Tickets: <%= @user.tickets %></li>
+	<% if @user.admin  %>
+		<li><%= display_admin(@user) %></li>	
+	<% end %>
+	<%= link_to "See attractions", attractions_path, :class => 'btn btn-primary' %>
+</ul>
