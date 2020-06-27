@@ -1,0 +1,15 @@
+
+
+<% if @user.admin == true %>
+<h1>ADMNIN</h1>
+<% end %>
+
+Name: <%= @user.name %>br><br>
+Nausea: <%= @user.nausea %>br><br>
+Happiness: <%= @user.happiness %>br><br>
+tickets: <%= @user.tickets %>br><br>
+Height: <%= @user.height %>br><br>
+password: <%= @user.password_digest %>br><br>
+
+<%= link_to "Edit", edit_user_path(@user) %><br><br>
+<%link_to "See attractions", attractions_path %>
