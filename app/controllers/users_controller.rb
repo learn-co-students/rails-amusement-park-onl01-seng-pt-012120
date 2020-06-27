@@ -47,6 +47,6 @@ private
 # name", "nausea", "happiness", "tickets", "height", "password"
 
 def user_params
-    params.require(:user).permit(:name, :nausea, :happiness, :tickets, :height, :password, :admin)
+    params.require(:user).permit(:name, :nausea, :happiness, :tickets, :height, :password_digest, :admin)
   end
 end
