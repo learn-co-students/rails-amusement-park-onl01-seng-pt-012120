@@ -1,7 +1,11 @@
-form_tag('/signin') do %>
-
-    <%label_tag "Users" %><br>
-    <%= select_tag "user[:id]", options_from_collection_for_select(User.all, :id, :name)%>
-    <%= submit_tag "Sign In" %>
-
-    <% end %>
+<h1>Sign In</h1>
+<%= form_tag('/signin', method: :post) do %>
+      <br>
+      <%= label_tag :name %>
+      <%= collection_select(:user, :name, User.all, :name, :name, :prompt => true)%>
+      <br>
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+      <br>
+      <%= submit_tag "Sign In" %>
+  <% end %>

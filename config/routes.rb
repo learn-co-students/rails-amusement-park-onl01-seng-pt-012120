@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users
-  resources :attractions
-  get "/signin" => "session#new"
-  post "/signin"=> "session#create"
-  get "/users/new"=> "session#new"
-  post "/logout"=> "session#destroy"
-  root "welcome#home"
-  post "/take_ride"=> "session#ride"
+  resources :attractions 
+  resources :users, only: [:new, :create, :show]
+  get 'users/new', to: 'users#new'
+  get '/signin', to: 'sessions#new'
+  post "/signin", to: "sessions#create"
+  delete "/signout", to: "sessions#destroy" 
+  root 'welcome#home'
+  get 'welcome/home'
+  get 'rides/create'
+  post "/rides/:id", to: "rides#create", as: "new_ride"
 end
