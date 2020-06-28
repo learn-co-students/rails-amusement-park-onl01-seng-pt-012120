@@ -1,7 +1,7 @@
 form_tag('/signin') do %>
 
     <%label_tag "Users" %><br>
-    <%= select_tag "user[id]", options_from_collection_for_select(User.all, :id, :name)%>
+    <%= select_tag "user[:id]", options_from_collection_for_select(User.all, :id, :name)%>
     <%= submit_tag "Sign In" %>
 
     <% end %>

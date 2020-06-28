@@ -5,11 +5,14 @@ class User < ActiveRecord::Base
     has_secure_password
 
 
-#     def mood
-#         if self.happiness > self.nausea
-#             return "Happy"
-#         else
-#             return"Sad"
-#     end
-# end
-end
+
+    
+      def mood
+        if self.happiness > self.nausea
+          return 'happy'
+        else
+          return 'sad'
+        end
+      end
+    
+    end

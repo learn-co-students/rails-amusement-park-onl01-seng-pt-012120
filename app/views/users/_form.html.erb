@@ -1,30 +1,31 @@
 "name", "nausea", "happiness", "tickets", "height", "password"],
 
 
-<%= form_for user do |f| %>
-
+<%= form_for @user do |f| %>
     <label> Name:</label><br>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name %></br>
 
   <label>Nausea:</label><br>
-  <%= f.number_field:nausea %><br>
+  <%= f.number_field:nausea %></br>
 
 
   <label> Happiness:</label><br>
-  <%= f.number_field :happiness %><br>
+  <%= f.number_field :happiness %></br>
 
   <label>Tickets:</label><br>
-  <%= f.number_field:tickets %><br>
+  <%= f.number_field:tickets %></br>
 
   <label>height:</label><br>
-  <%= f.number_field :height %><br>
+  <%= f.number_field :height %></br>
 
   <label> password:</label><br>
-  <%= f.text_field :password_digest %><br>
+  <%= f.text_field :password %></br>
+
 
   <label>admin:</label><br>
-  <%= f.check_box :admin %><br>
- 
+  <%= f.check_box :admin %></br>
+
+  
  
   <%= f.submit %>
 <% end %>

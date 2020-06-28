@@ -1,4 +1,4 @@
-class AttractionController < ApplicationController
+class AttractionsController < ApplicationController
     
     def index
         @attractions = Attraction.all 
@@ -11,14 +11,14 @@ class AttractionController < ApplicationController
     end
     
     def create
-        @attraction = Attraction.new(params[:attraction_params])
+        @attraction = Attraction.new(attraction_params)
         if @user.save
             session[:user_id]= @user.id
-          redirect_to @attraction_path(@attraction), :alert => "you Signed up"
+          redirect_to attraction_path(@attraction)
         else
           # This line overrides the default rendering behavior, which
           # would have been to render the "create" view.
-          render "new", :alert => "Please complete the forms"
+          render "new", :alert => "Please Fill in all  forms"
         end
     end
     
@@ -29,17 +29,17 @@ class AttractionController < ApplicationController
     
     def update
         @attraction = Attraction.find(params[:id])
-        if @attraction.update(user_params)
-        redirect_to user_path(@attraction), :alert=> "UPDATE!"
+        if @attraction.update(attraction_params)
+        redirect_to user_path(@attraction), :alert=> "You just Update The Attraction "
         else
-            render 'edit', :alert=>"Please complete the forms"
+            render 'edit', :alert=>"Please Fill in All forms"
     end
     end
     
     
     
     def show
-        @attraction = Attraction.find(params[id])
+        @attraction = Attraction.find(params[:id])
         @user = current_user
     end
     
