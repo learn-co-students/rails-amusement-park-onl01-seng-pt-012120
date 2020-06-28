@@ -1,0 +1,15 @@
+<% if current_user.admin %>
+  <h1>ADMIN</h1>
+  <p><%= @user.name %></p>
+<% else %>
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end %>
+   Name: <%= @user.name %><br><br>
+   Tickets: <%= @user.tickets %><br><br>
+   Mood: <%= @user.mood %><br><br>
+   Height: <%= @user.height %> inches<br><br>
+<% end %>
+<%= link_to "See attractions", attractions_path %>
+<%= link_to "Log Out", signout_path, method: 'delete'%>
+
