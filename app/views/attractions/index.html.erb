@@ -1,0 +1,11 @@
+<h1>All Attractions</h1>
+<% if User.find(session[:user_id]).admin == false %>
+    <% @attractions.each do |x| %>
+        <%= link_to "Go on #{x.name}", attraction_path(x) %>
+    <% end %>
+<% else %>
+    <% @attractions.each do |x| %>
+        <%= link_to "Show #{x.name}", attraction_path(x) %>
+    <% end %>
+    <%= link_to "New Attraction", "/attractions/new" %>
+<% end %>
