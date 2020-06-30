@@ -37,7 +37,6 @@ class AttractionsController < ApplicationController
     end
 
     def ride
-        # binding.pry
         @ride = Ride.create(user_id: session[:user_id], attraction_id: params[:id])
         @message = @ride.take_ride
         flash[:notice] = @message
